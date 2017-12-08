@@ -1,8 +1,9 @@
-// Type definitions for Koa 2.x
+// Type definitions for Koa 2.4
 // Project: http://koajs.com
 // Definitions by: DavidCai1993 <https://github.com/DavidCai1993>
 //                 jKey Lu <https://github.com/jkeylu>
 //                 Brice Bernard <https://github.com/brikou>
+//                 Tomek Łaziuk <https://github.com/tlaziuk>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.3
 
@@ -505,6 +506,11 @@ declare class Application extends EventEmitter {
      * for node's native http server.
      */
     callback(): (req: IncomingMessage, res: ServerResponse) => void;
+
+    /**
+     * Handle request in callback.
+     */
+    handleRequest(ctx: Application.Context, fnMiddleware: compose.ComposedMiddleware<Application.Context>): Promise<void>;
 
     /**
      * Initialize a new context.
